@@ -256,7 +256,7 @@ var Todo = Backbone.Model.extend({
 });
 
 var myTodo = new Todo();
-myTodo.set('completed', false); // logs: Remember to set a title for your todo.
+myTodo.set('completed', false, {validate: true}); // logs: Remember to set a title for your todo.
 ```
 
 **Note**: Backbone passes the `attributes` object (attribs param in above example) by shallow copy to the `validate` function using the Underscore `_.extend` method. This means that it is not possible to change any Number, String or Boolean attribute but it *is* possible to change attributes of objects because they are passed by reference. As shallow copy doesn't copy objects by implicitly copying them, but rather, by reference, one can change the attributes on those objects.
